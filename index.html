@@ -1,0 +1,490 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap');
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f5f6fa;
+    color: #1a1a2e
+  }
+
+  .resume {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.10)
+  }
+
+  .header {
+    background: #0f1b2d;
+    color: #fff;
+    padding: 36px 44px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    overflow: hidden
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    right: -60px;
+    top: -60px;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: rgba(56, 130, 246, 0.10)
+  }
+
+  .header-left h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 42px;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    line-height: 1.1
+  }
+
+  .header-left .subtitle {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #7eb3f5;
+    font-weight: 500;
+    letter-spacing: 0.3px
+  }
+
+  .header-right {
+    text-align: right;
+    font-size: 13px;
+    color: #b0c4de;
+    line-height: 2
+  }
+
+  .header-right a {
+    color: #7eb3f5;
+    text-decoration: none
+  }
+
+  .header-right span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    justify-content: flex-end
+  }
+
+  .body {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 0
+  }
+
+  .main {
+    padding: 32px 36px;
+    border-right: 1px solid #eef0f5
+  }
+
+  .sidebar {
+    padding: 28px 24px;
+    background: #fafbfc
+  }
+
+  .section-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: #3882f6;
+    margin-bottom: 14px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #e8f0fe
+  }
+
+  .objective-box {
+    border-left: 3px solid #3882f6;
+    padding: 14px 16px;
+    background: #f4f8ff;
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+    line-height: 1.75;
+    color: #2d3748;
+    margin-bottom: 28px
+  }
+
+  .project-card {
+    border: 1px solid #e8eaf0;
+    border-radius: 10px;
+    padding: 18px 18px 14px;
+    margin-bottom: 16px;
+    border-left: 3px solid #3882f6
+  }
+
+  .project-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a1a2e;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px
+  }
+
+  .project-badge {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 500
+  }
+
+  .badge-live {
+    background: #e8f5e9;
+    color: #2e7d32
+  }
+
+  .badge-academic {
+    background: #e3f2fd;
+    color: #1565c0
+  }
+
+  .project-desc {
+    font-size: 13px;
+    color: #5a6470;
+    line-height: 1.65;
+    margin-bottom: 10px
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px
+  }
+
+  .tag {
+    font-size: 11px;
+    padding: 3px 10px;
+    background: #f1f3f5;
+    border: 1px solid #dde1e7;
+    border-radius: 4px;
+    color: #445;
+    font-family: monospace
+  }
+
+  .edu-item {
+    margin-bottom: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start
+  }
+
+  .edu-left .degree {
+    font-weight: 600;
+    font-size: 15px;
+    color: #1a1a2e
+  }
+
+  .edu-left .school {
+    font-size: 13px;
+    color: #6b7280;
+    margin-top: 2px
+  }
+
+  .edu-right {
+    text-align: right;
+    font-size: 12px;
+    color: #3882f6;
+    font-weight: 600;
+    white-space: nowrap
+  }
+
+  .edu-right .status {
+    font-size: 11px;
+    color: #9ca3af;
+    font-weight: 400;
+    margin-top: 2px
+  }
+
+  .sidebar-section {
+    margin-bottom: 26px
+  }
+
+  .sidebar-section .section-title {
+    font-size: 10px;
+    letter-spacing: 1.6px
+  }
+
+  .skill-group {
+    margin-bottom: 14px
+  }
+
+  .skill-group-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #8896a5;
+    margin-bottom: 7px
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px
+  }
+
+  .skill-tag {
+    font-size: 12px;
+    padding: 4px 10px;
+    border: 1px solid #dde3ec;
+    border-radius: 20px;
+    color: #2d3748;
+    background: #fff
+  }
+
+  .skill-tag.highlight {
+    background: #3882f6;
+    color: #fff;
+    border-color: #3882f6
+  }
+
+  .highlight-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    font-size: 13px;
+    color: #374151;
+    line-height: 1.5
+  }
+
+  .highlight-icon {
+    font-size: 18px;
+    margin-top: 1px
+  }
+
+  .lang-item {
+    margin-bottom: 12px
+  }
+
+  .lang-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: 500;
+    color: #2d3748;
+    margin-bottom: 5px
+  }
+
+  .lang-level {
+    font-size: 11px;
+    color: #9ca3af;
+    font-weight: 400
+  }
+
+  .lang-bar {
+    height: 4px;
+    background: #e8edf5;
+    border-radius: 4px;
+    overflow: hidden
+  }
+
+  .lang-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    background: #3882f6
+  }
+
+  .interest-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px
+  }
+
+  .interest-tag {
+    font-size: 12px;
+    padding: 5px 12px;
+    border: 1px solid #dde3ec;
+    border-radius: 20px;
+    color: #374151
+  }
+</style>
+<div class="resume">
+  <div class="header">
+    <div class="header-left">
+      <h1>Anjali Mhase</h1>
+      <div class="subtitle">Aspiring Full-Stack Developer &nbsp;·&nbsp; B.Sc. Computer Science</div>
+    </div>
+    <div class="header-right">
+      <span>📍 Ahilyanagar, Maharashtra</span>
+      <span>✉️ anjalimhase8075@gmail.com</span>
+      <span>💼 <a href="#">linkedin.com/in/anjalimhase</a></span>
+      <span>🐙 <a href="github.com/anjalimhase24">github.com/anjaliMhase24</a></span>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="main">
+
+      <div class="section-title">Objective</div>
+      <div class="objective-box">
+        Passionate B.Sc. Computer Science student with a strong foundation in Full-Stack Web Development and a drive to
+        build real-world solutions. Seeking opportunities to grow as a MERN Stack Developer while contributing to
+        meaningful projects through consistent learning and hands-on practice.
+      </div>
+
+      <div class="section-title">Projects</div>
+
+      <div class="project-card">
+        <div class="project-title">
+          🎓 Student Scholarship Finder
+          <span class="project-badge badge-academic">Academic Project</span>
+        </div>
+        <div class="project-desc">Helps students easily find scholarships in one place and save time. A centralized
+          platform to browse, filter, and apply for scholarships efficiently.</div>
+        <div class="tags">
+          <span class="tag">HTML5</span>
+          <span class="tag">CSS3</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">React.js</span>
+          <span class="tag">SQL</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-title">
+          🍽️ AnapurnaHub
+          <span class="project-badge badge-live">Live Project</span>
+        </div>
+        <div class="project-desc">A web platform built and deployed on Vercel. Focused on clean UI and responsive design
+          for a smooth user experience.</div>
+        <div class="tags">
+          <span class="tag">HTML5</span>
+          <span class="tag">CSS3</span>
+          <span class="tag">Vercel</span>
+        </div>
+      </div>
+
+      <br>
+      <div class="section-title">Education</div>
+
+      <div class="edu-item">
+        <div class="edu-left">
+          <div class="degree">B.Sc. Computer Science</div>
+          <div class="school">Arts, Commerce &amp; Science College, Sonai · SPPU</div>
+        </div>
+        <div class="edu-right">2023 – 2026<div class="status">SGPA: 8.27</div>
+        </div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-left">
+          <div class="degree">HSC — Science</div>
+          <div class="school">Kanya Madhyamik Vidyalaya, Vambori</div>
+        </div>
+        <div class="edu-right">2022<div class="status">46.67%</div>
+        </div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-left">
+          <div class="degree">SSC — Secondary School</div>
+          <div class="school">Kanya Madhyamik Vidyalaya, Vambori</div>
+        </div>
+        <div class="edu-right">2020<div class="status">90.40%</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="sidebar">
+
+      <div class="sidebar-section">
+        <div class="section-title">Tech Skills</div>
+        <div class="skill-group">
+          <div class="skill-group-label">Frontend</div>
+          <div class="skill-tags">
+            <span class="skill-tag highlight">HTML5</span>
+            <span class="skill-tag highlight">CSS3</span>
+            <span class="skill-tag highlight">JavaScript</span>
+            <span class="skill-tag">React.js</span>
+            <span class="skill-tag">Responsive Design</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">Backend & DB</div>
+          <div class="skill-tags">
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">SQL</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">Tools & Platforms</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">GitHub</span>
+            <span class="skill-tag">Netlify</span>
+            <span class="skill-tag">Vercel</span>
+            <span class="skill-tag">Postman</span>
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">VS Code</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">Other</div>
+          <div class="skill-tags">
+            <span class="skill-tag">SVG Animation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="section-title">Highlights</div>
+        <div class="highlight-item"><span class="highlight-icon">🎓</span><span>Built Scholarship Finder — a real-world
+            platform helping students access scholarships</span></div>
+        <div class="highlight-item"><span class="highlight-icon">🚀</span><span>Deployed AnapurnaHub live on
+            Vercel</span></div>
+        <div class="highlight-item"><span class="highlight-icon">💡</span><span>Self-taught MERN stack through
+            project-based learning</span></div>
+        <div class="highlight-item"><span class="highlight-icon">🤝</span><span>Strong soft skills — Leadership,
+            Teamwork & Communication</span></div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="section-title">Languages</div>
+        <div class="lang-item">
+          <div class="lang-label">Marathi <span class="lang-level">Native</span></div>
+          <div class="lang-bar">
+            <div class="lang-bar-fill" style="width:100%"></div>
+          </div>
+        </div>
+        <div class="lang-item">
+          <div class="lang-label">Hindi <span class="lang-level">Fluent</span></div>
+          <div class="lang-bar">
+            <div class="lang-bar-fill" style="width:85%"></div>
+          </div>
+        </div>
+        <div class="lang-item">
+          <div class="lang-label">English <span class="lang-level">Proficient</span></div>
+          <div class="lang-bar">
+            <div class="lang-bar-fill" style="width:70%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="section-title">Interests</div>
+        <div class="interest-tags">
+          <span class="interest-tag">🌐 Web Dev</span>
+          <span class="interest-tag">🤖 AI & ML</span>
+          <span class="interest-tag">📊software Development</span>
+          <span class="interest-tag">🎨 UI Design</span>
+          <span class="interest-tag">📖 Open Source</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
